@@ -23,6 +23,16 @@ public class User {
 	
 	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "phoneNumber")
+	private Integer phoneNumber;
+	
+	@Column(name = "accountNumber")
+	private Integer accountNumber;
+	
+	@Column(name = "balance")
+	private Double balance;
+	
 	public long getId() {
 		return id;
 	}
@@ -47,4 +57,29 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Integer getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(Integer accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+	public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+	public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
 }

@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // display list of employees
+    // display list of users
     @GetMapping("/")
     public String viewHomePage(Model model) {
         model.addAttribute("listUsers", userService.getAllUsers());
@@ -25,16 +25,16 @@ public class UserController {
     }
 
     @GetMapping("/showNewUserForm")
-    public String showNewEmployeeForm(Model model) {
+    public String showNewUserForm(Model model) {
         // create model attribute to bind form data
         User user = new User();
         model.addAttribute("user", user);
-        return "new_employee";
+        return "new_user";
     }
 
     @PostMapping("/saveUser")
-    public String saveEmployee(@ModelAttribute("user") User user) {
-        // save employee to database
+    public String saveUser(@ModelAttribute("user") User user) {
+        // save users to database
         userService.saveUser(user);
         return "redirect:/";
     }
@@ -42,19 +42,23 @@ public class UserController {
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
-        // get employee from the service
+        // get users from the service
         User user = userService.getUserById(id);
 
-        // set employee as a model attribute to pre-populate the form
+        // set users as a model attribute to pre-populate the form
         model.addAttribute("user", user);
         return "update_user";
     }
 
     @GetMapping("/deleteUser/{id}")
-    public String deleteEmployee(@PathVariable(value = "id") long id) {
+    public String deleteUser(@PathVariable(value = "id") long id) {
 
-        // call delete employee method 
+        // call delete users method 
         this.userService.deleteUserById(id);
         return "redirect:/";
     }
+
+
+
+    
 }

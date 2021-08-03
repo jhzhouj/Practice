@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="ISO-8859-1">
-    <title>User Management System</title>
+    <title>Bank User Management System</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -12,16 +12,19 @@
 <body>
 
     <div class="container my-2">
-        <h1>Users List</h1>
+        <h1>Bank Users List</h1>
 
-        <a th:href="@{/showNewUserForm}" class="btn btn-primary btn-sm mb-3"> Add User </a>
+        <a th:href="@{/showNewUserForm}" class="btn btn-primary btn-sm mb-3"> Add Bank User </a>
 
         <table border="1" class="table table-striped table-responsive-md">
             <thead>
                 <tr>
-                    <th>User First Name</th>
-                    <th>User Last Name</th>
-                    <th>User Email</th>
+                    <th>Bank User First Name</th>
+                    <th>Bank User Last Name</th>
+                    <th>Bank User Email</th>
+                    <th>Bank User Phone Number</th>
+                    <th>Bank User Account Number</th>
+                    <th>Bank User Account Balance</th>
                     <th> Actions </th>
                 </tr>
             </thead>
@@ -30,6 +33,9 @@
                     <td th:text="${user.firstName}"></td>
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${user.email}"></td>
+                    <td th:text="${user.phoneNumber}"></td>
+                    <td th:text="${user.accountNumber}"></td>
+                    <td th:text="${user.balance}"></td>
                     <td> <a th:href="@{/showFormForUpdate/{id}(id=${user.id})}" class="btn btn-primary">Update</a>
                         <a th:href="@{/deleteUser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
                     </td>
